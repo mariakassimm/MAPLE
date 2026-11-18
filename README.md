@@ -1,33 +1,78 @@
-# MAPLE — The Art of Everyday Luxury
+MAPLE — The Art of Everyday Luxury
 
-Pakistan-only (PKR) single-brand e-commerce platform: a React storefront and admin, and a Node/Express/MongoDB API.
+A Pakistan-focused, single-brand e-commerce platform built to deliver a seamless online shopping experience.
 
-- `backend/` — Node/Express/TypeScript/MongoDB API
-- `frontend/` — React/Vite/TypeScript storefront and admin
-- `docs/` — ENVIRONMENT, ARCHITECTURE, API, DATABASE, SECURITY, DEPLOYMENT, TESTING, PROVIDER_SETUP, SHIPPING, ORDERS, CATALOGUE, FINAL_REPORT
+Live Demo: https://maple-coral.vercel.app/
 
-## Highlights
-- Shop, collections and new arrivals with URL-driven filtering, sorting and a mobile filter sheet.
-- Guest and customer checkout (cash on delivery, JazzCash, Easypaisa), idempotent orders, price re-check, stock reservation.
-- Order lifecycle with emails (placed, confirmed, dispatched, delivered), masked guest order tracking, returns and reviews.
-- Admin dashboard with role-based staff access (super admin, product, order and support roles), audit log, COD ledger.
-- Strict separation of customer and admin accounts, HTTP-only sessions and CSRF protection.
+Overview
 
-## Run locally
-```bash
-cd backend  && cp .env.example .env   # set MONGODB_URI and CSRF_SECRET; DEMO_MODE=true is already in the example
-npm install && npm run seed-service-areas && npm run seed-demo && npm run seed-policies
-npm run create-super-admin            # interactive; your admin login
-npm run dev                           # API on :4000
+MAPLE is a full-stack e-commerce application featuring a customer storefront and an administrative dashboard. It supports product discovery, secure customer accounts, order management, and Pakistan-specific checkout options with PKR pricing.
 
-cd frontend && npm install && npm run dev   # storefront on :5173 (/api is proxied)
-```
-Tests: `npm test` in each folder. Backend details: `backend/README.md`.
+Features
 
-## Demo mode (no merchant accounts needed)
-With `DEMO_MODE=true`, JazzCash, Easypaisa, TCS and Leopards work as labelled simulations: a sandbox payment page and
-couriers whose tracking moves forward by itself. When a real client brings credentials, set them in the environment and
-set `DEMO_MODE=false`; no code changes. See `docs/PROVIDER_SETUP.md`.
+Product browsing, collections, search, filtering, and sorting
 
-## Deploy
-Atlas + Render + Vercel: `docs/DEPLOYMENT.md` (`render.yaml` included).
+Customer registration, login, cart, and checkout
+
+Cash on Delivery and simulated JazzCash and Easypaisa payments
+
+Order tracking, returns, and product reviews
+
+Admin dashboard with role-based access
+
+Product, inventory, customer, and order management
+
+Responsive storefront for desktop and mobile
+
+Technology Stack
+
+Frontend: React, TypeScript, Vite, Tailwind CSS
+
+Backend: Node.js, Express.js, TypeScript
+
+Database: MongoDB, Mongoose
+
+Deployment: Vercel
+
+Getting Started
+
+Prerequisites
+
+Node.js
+
+npm
+
+MongoDB connection string
+
+Backend
+
+cd backend
+npm install
+
+Create a .env file using .env.example and configure the required environment variables, including MONGODB_URI and CSRF_SECRET.
+
+Run the setup commands:
+
+npm run seed-service-areas
+npm run seed-demo
+npm run seed-policies
+npm run create-super-admin
+npm run dev
+
+The backend runs at http://localhost:4000.
+
+Frontend
+
+Open another terminal:
+
+cd frontend
+npm install
+npm run dev
+
+The storefront runs at http://localhost:5173.
+
+Demo Mode
+
+MAPLE includes a demo mode for testing checkout and integrations without live merchant accounts.
+
+JazzCash, Easypaisa, and shipping provider integrations operate as simulations when DEMO_MODE=true. Real provider credentials can be configured later.
