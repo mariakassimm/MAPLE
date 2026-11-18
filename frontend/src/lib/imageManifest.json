@@ -1,0 +1,812 @@
+{
+"/brand/about-boutique.jpg": {
+"h": 1200,
+"w": 2400,
+"widths": [
+400,
+800,
+1200,
+1600,
+2000,
+2400
+]
+},
+"/brand/about-bracelet.jpg": {
+"h": 960,
+"w": 960,
+"widths": [
+400,
+800,
+960
+]
+},
+"/brand/about-coat.jpg": {
+"h": 1333,
+"w": 2000,
+"widths": [
+400,
+800,
+1200,
+1600,
+2000
+]
+},
+"/brand/about-design.jpg": {
+"h": 1333,
+"w": 2000,
+"widths": [
+400,
+800,
+1200,
+1600,
+2000
+]
+},
+"/brand/about-details.jpg": {
+"h": 1152,
+"w": 2048,
+"widths": [
+400,
+800,
+1200,
+1600,
+2048
+]
+},
+"/brand/about-everyday.jpg": {
+"h": 1333,
+"w": 2000,
+"widths": [
+400,
+800,
+1200,
+1600,
+2000
+]
+},
+"/brand/about-eyewear.jpg": {
+"h": 1467,
+"w": 2200,
+"widths": [
+400,
+800,
+1200,
+1600,
+2000,
+2200
+]
+},
+"/brand/about-hero.jpg": {
+"h": 1339,
+"w": 2400,
+"widths": [
+400,
+800,
+1200,
+1600,
+2000,
+2400
+]
+},
+"/brand/about-jewellery.jpg": {
+"h": 1234,
+"w": 2200,
+"widths": [
+400,
+800,
+1200,
+1600,
+2000,
+2200
+]
+},
+"/brand/about-satin.jpg": {
+"h": 896,
+"w": 1600,
+"widths": [
+400,
+800,
+1200,
+1600
+]
+},
+"/brand/beauty-in-every-detail.jpg": {
+"h": 259,
+"w": 194,
+"widths": [
+194
+]
+},
+"/brand/cat-handbags.jpg": {
+"h": 1448,
+"w": 1086,
+"widths": [
+400,
+800,
+1086
+]
+},
+"/brand/cat-jewellery.jpg": {
+"h": 640,
+"w": 479,
+"widths": [
+400,
+479
+]
+},
+"/brand/cat-wallets.jpg": {
+"h": 1024,
+"w": 1024,
+"widths": [
+400,
+800,
+1024
+]
+},
+"/brand/cat-watches.jpg": {
+"h": 1080,
+"w": 1080,
+"widths": [
+400,
+800,
+1080
+]
+},
+"/brand/quiet-edit.jpg": {
+"h": 1100,
+"w": 1100,
+"widths": [
+400,
+800,
+1100
+]
+},
+"/products/accessories/cashmere-blend-scarf.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/accessories/hair-barrette-pair.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/accessories/leather-belt.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/accessories/leather-gloves.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/accessories/pocket-square-set.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/accessories/printed-silk-scarf.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/accessories/silk-scrunchie-set.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/accessories/waist-belt.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/accessories/wool-wrap-shawl.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/aviator-sunglasses.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/browline-sunglasses.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/cat-eye-sunglasses.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/geometric-sunglasses.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/oversized-square-sunglasses.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/round-shield-sunglasses.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/slim-rectangular-frames.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/tortoiseshell-round-frames.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/eyewear/wayfarer-sunglasses.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/desk-set.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/gift-for-her.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/gift-for-him.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/jewellery-gift-box.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/leather-essentials-box.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/silk-and-scent-set.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/the-gift-set.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/travel-gift-set.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/gifts/wedding-gift-hamper.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/bucket-drawstring-bag.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/envelope-clutch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/everyday-backpack.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/market-shopper.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/mini-frame-crossbody.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/pleated-top-handle.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/quilted-evening-bag.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/saddle-crossbody.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/soft-slouch-shoulder-bag.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/structured-satchel.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/the-everyday-tote.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/handbags/weekend-carryall.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/cuff-bracelet-2.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/cuff-bracelet.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/everyday-hoop-earrings-2.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/everyday-hoop-earrings.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/fine-chain-necklace-2.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/fine-chain-necklace.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/layered-necklace-set-2.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/layered-necklace-set.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/pearl-drop-earrings-2.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/pearl-drop-earrings.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/signet-ring-2.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/signet-ring.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/stacking-ring-trio-2.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/jewellery/stacking-ring-trio.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/bifold-wallet.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/compact-zip-wallet.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/embossed-wristlet-wallet.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/grained-zip-purse.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/mini-zip-wallet.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/monogram-zip-wallet.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/quilted-card-purse.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/quilted-tassel-wallet.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/slim-card-holder.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/wallets/zip-around-purse.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/classic-round-watch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/day-date-watch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/everyday-quartz.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/midnight-dial-watch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/minimal-mesh-watch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/moonphase-dial-watch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/rose-tone-watch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/slim-dress-watch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+},
+"/products/watches/square-case-watch.jpg": {
+"h": 1500,
+"w": 1200,
+"widths": [
+400,
+800,
+1200
+]
+}
+}

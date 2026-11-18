@@ -1,0 +1,18 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# local clutter
+backend/test-out.txt
+Claude outputs/
+*.zip
+*.tar
+frontend/test-results/
+frontend/playwright-report/

@@ -1,0 +1,50 @@
+# Optional alternative host. The documented free setup is Vercel for both projects (docs/DEPLOYMENT.md).
+# Render Blueprint for the MAPLE API. Frontend goes on Vercel (frontend/vercel.json). Database: MongoDB Atlas.
+services:
+  - type: web
+    name: maple-api
+    runtime: node
+    rootDir: backend
+    plan: free               # portfolio: the free plan sleeps after ~15 min idle (first request takes ~30-60 s). Use "starter" for a real store.
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/v1/health/ready
+    envVars:
+      - { key: NODE_ENV, value: production }
+      - { key: TRUST_PROXY, value: "1" }
+      - { key: BCRYPT_COST, value: "12" }
+      - { key: COOKIE_SAMESITE, value: lax }
+      # Portfolio mode: payment methods and couriers without real credentials are simulated and labelled "Demo".
+      # Real credentials always win. Set to "false" (or delete) when this becomes a real store.
+      - { key: DEMO_MODE, value: "true" }
+      # Production refuses to start in demo mode unless this is also set: a deliberate "yes, this has no real customers".
+      - { key: ALLOW_DEMO_IN_PRODUCTION, value: "true" }
+      # Set these in the Render dashboard (sync: false = never stored in this file):
+      - { key: MONGODB_URI, sync: false }
+      - { key: CSRF_SECRET, sync: false }
+      - { key: CLIENT_ORIGINS, sync: false }     # https://www.yourdomain.pk
+      - { key: COOKIE_DOMAIN, sync: false }      # .yourdomain.pk
+      - { key: API_PUBLIC_URL, sync: false }     # https://api.yourdomain.pk
+      - { key: RESEND_API_KEY, sync: false }
+      - { key: EMAIL_FROM, sync: false }
+      - { key: CLOUDINARY_CLOUD_NAME, sync: false }
+      - { key: CLOUDINARY_API_KEY, sync: false }
+      - { key: CLOUDINARY_API_SECRET, sync: false }
+      - { key: SENTRY_DSN, sync: false }
+      - { key: JAZZCASH_ENV, sync: false }
+      - { key: JAZZCASH_MERCHANT_ID, sync: false }
+      - { key: JAZZCASH_PASSWORD, sync: false }
+      - { key: JAZZCASH_INTEGRITY_SALT, sync: false }
+      - { key: EASYPAISA_ENV, sync: false }
+      - { key: EASYPAISA_STORE_ID, sync: false }
+      - { key: EASYPAISA_HASH_KEY, sync: false }
+      - { key: SHIP_FROM_NAME, sync: false }
+      - { key: SHIP_FROM_PHONE, sync: false }
+      - { key: SHIP_FROM_CITY, sync: false }
+      - { key: SHIP_FROM_ADDRESS, sync: false }
+      - { key: TCS_ENV, sync: false }
+      - { key: TCS_USERNAME, sync: false }
+      - { key: TCS_PASSWORD, sync: false }
+      - { key: TCS_ACCOUNT_NUMBER, sync: false }
+      - { key: LEOPARDS_API_KEY, sync: false }
+      - { key: LEOPARDS_API_PASSWORD, sync: false }
