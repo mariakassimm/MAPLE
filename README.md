@@ -1,78 +1,92 @@
-MAPLE — The Art of Everyday Luxury
+# MAPLE | The Art of Everyday Luxury
 
-A Pakistan-focused, single-brand e-commerce platform built to deliver a seamless online shopping experience.
+A full-stack, single-brand e-commerce platform built for the Pakistani market, featuring a customer storefront and an administrative dashboard.
 
-Live Demo: https://maple-coral.vercel.app/
+**Live Demo:** [https://maple-coral.vercel.app](https://maple-coral.vercel.app)
 
-Overview
+**Repository:** [https://github.com/mariakassimm/MAPLE](https://github.com/mariakassimm/MAPLE)
 
-MAPLE is a full-stack e-commerce application featuring a customer storefront and an administrative dashboard. It supports product discovery, secure customer accounts, order management, and Pakistan-specific checkout options with PKR pricing.
+---
 
-Features
+## About
 
-Product browsing, collections, search, filtering, and sorting
+MAPLE is an e-commerce application designed around the needs of a Pakistan-based retail business. It provides a complete shopping experience, from product discovery and checkout to order tracking and administration.
 
-Customer registration, login, cart, and checkout
+The platform uses PKR pricing and supports locally relevant checkout and shipping workflows.
 
-Cash on Delivery and simulated JazzCash and Easypaisa payments
+## Core Features
 
-Order tracking, returns, and product reviews
+- **Product Catalogue:** Product listings, collections, search, filtering, and sorting.
+- **Customer Accounts:** Registration, authentication, and shopping cart.
+- **Checkout:** Cash on Delivery and simulated JazzCash and Easypaisa integrations.
+- **Order Management:** Order tracking, status updates, returns, and reviews.
+- **Administration:** Role-based access and product, inventory, customer, and order management.
+- **Notifications:** Automated order lifecycle emails.
+- **Security:** Session-based authentication, CSRF protection, and administrative audit logging.
+- **Responsive Design:** Optimized storefront experience across desktop and mobile devices.
 
-Admin dashboard with role-based access
+## Technology Stack
 
-Product, inventory, customer, and order management
+| Component | Technologies |
+|---|---|
+| Frontend | React, TypeScript, Vite, Tailwind CSS |
+| Backend | Node.js, Express.js, TypeScript |
+| Database | MongoDB, Mongoose |
+| Deployment | Vercel |
 
-Responsive storefront for desktop and mobile
+## Getting Started
 
-Technology Stack
+### Prerequisites
 
-Frontend: React, TypeScript, Vite, Tailwind CSS
+- Node.js and npm
+- MongoDB database
+- Git
 
-Backend: Node.js, Express.js, TypeScript
+### Backend Setup
 
-Database: MongoDB, Mongoose
-
-Deployment: Vercel
-
-Getting Started
-
-Prerequisites
-
-Node.js
-
-npm
-
-MongoDB connection string
-
-Backend
-
+```bash
 cd backend
 npm install
+```
 
-Create a .env file using .env.example and configure the required environment variables, including MONGODB_URI and CSRF_SECRET.
+Create a `.env` file from `.env.example` and configure the required environment variables, including:
 
-Run the setup commands:
+- `MONGODB_URI`
+- `CSRF_SECRET`
+- `DEMO_MODE=true`
 
+Initialize the application:
+
+```bash
 npm run seed-service-areas
 npm run seed-demo
 npm run seed-policies
 npm run create-super-admin
+```
+
+Start the development server:
+
+```bash
 npm run dev
+```
 
-The backend runs at http://localhost:4000.
+The backend API runs at `http://localhost:4000`.
 
-Frontend
+### Frontend Setup
 
-Open another terminal:
+Open a separate terminal:
 
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-The storefront runs at http://localhost:5173.
+The frontend runs at `http://localhost:5173`.
 
-Demo Mode
+## Demo Configuration
 
-MAPLE includes a demo mode for testing checkout and integrations without live merchant accounts.
+The application supports demo mode for testing integrations without requiring active merchant accounts.
 
-JazzCash, Easypaisa, and shipping provider integrations operate as simulations when DEMO_MODE=true. Real provider credentials can be configured later.
+When `DEMO_MODE=true`, payment and shipping integrations operate as simulations. Live provider credentials can be configured separately when transitioning to production.
+
