@@ -77,7 +77,7 @@ export function Footer() {
                 {contact.email && (
                   <p className="flex items-start gap-3">
                     <Mail size={16} strokeWidth={1.4} className="mt-0.5 shrink-0 text-[#B69A70]" aria-hidden />
-                    <a href={`mailto:${contact.email}`} className="break-all hover:text-ivory">
+                    <a href={`mailto:${contact.email}`} className="inline-block break-all py-2 hover:text-ivory">
                       {contact.email}
                     </a>
                   </p>
@@ -85,7 +85,7 @@ export function Footer() {
                 {contact.phone && (
                   <p className="flex items-start gap-3">
                     <Phone size={16} strokeWidth={1.4} className="mt-0.5 shrink-0 text-[#B69A70]" aria-hidden />
-                    <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="hover:text-ivory">
+                    <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="inline-block py-2 hover:text-ivory">
                       {contact.phone}
                     </a>
                   </p>

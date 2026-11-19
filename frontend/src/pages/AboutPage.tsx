@@ -397,27 +397,27 @@ export default function AboutPage() {
           aria-hidden
           className="pointer-events-none absolute -left-40 top-10 h-[480px] w-[480px] rounded-full bg-[radial-gradient(closest-side,rgba(119,99,77,0.16),transparent)] scale-[1.6]"
         />
-        <div className="page-container relative grid items-center gap-14 py-24 md:grid-cols-12 md:gap-0 md:py-40">
+        <div className="page-container relative grid items-center gap-10 py-16 sm:gap-14 sm:py-24 md:grid-cols-12 md:gap-0 md:py-40">
           <div className="md:col-span-6 md:pr-14">
             <Reveal>
               <p className="eyebrow !text-[#B69A70]">About MAPLE</p>
             </Reveal>
             <h2
               id="story-h"
-              className="mt-8 text-balance text-[38px] font-light leading-[1.08] sm:text-6xl lg:text-[68px]"
+              className="mt-6 text-balance text-[32px] font-light leading-[1.1] min-[400px]:text-[38px] sm:mt-8 sm:text-6xl lg:text-[68px]"
             >
               <Words text="MAPLE is an independent house of considered pieces, made to be lived in." />
             </h2>
-            <Divider className="mt-12" />
-            <div className="mt-10 space-y-6">
+            <Divider className="mt-8 sm:mt-12" />
+            <div className="mt-8 space-y-5 sm:mt-10 sm:space-y-6">
               <Reveal delay={0.05}>
-                <p className="max-w-md text-[17px] leading-[1.9] text-[#AAA39A]">
+                <p className="max-w-md text-[16px] leading-[1.85] text-[#AAA39A] sm:text-[17px] sm:leading-[1.9]">
                   We believe luxury is <span className="font-display text-[1.25em] text-gold">quiet</span>: the right
                   proportions, honest materials and finishing you notice only when you look closely.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
-                <p className="max-w-md text-[17px] leading-[1.9] text-[#AAA39A]">
+                <p className="max-w-md text-[16px] leading-[1.85] text-[#AAA39A] sm:text-[17px] sm:leading-[1.9]">
                   Every piece is chosen to move easily from one day to the next.{' '}
                   <span className="font-display text-[1.3em] italic text-gold">Elegance, without effort.</span>
                 </p>
@@ -533,7 +533,7 @@ export default function AboutPage() {
           <Reveal delay={0.3} className="mt-12">
             <Link
               to="/shop"
-              className="link-underline group inline-flex items-center gap-3 text-[13px] uppercase tracking-[0.24em] text-[#EAE4D9] hover:text-[#B69A70]"
+              className="link-underline group inline-flex items-center py-3 gap-3 text-[13px] uppercase tracking-[0.24em] text-[#EAE4D9] hover:text-[#B69A70]"
             >
               Explore the Collection{' '}
               <ArrowRight size={15} className="transition-transform duration-500 group-hover:translate-x-1.5" />

@@ -7,7 +7,7 @@ import type { Facets, ProductQuery } from '@/types/api';
  */
 export type Mode = 'shop' | 'collection' | 'new';
 
-export const PAGE_SIZE = 9;
+export const PAGE_SIZE = 12;
 
 export const SORTS = [
   { value: 'featured', label: 'Featured' },

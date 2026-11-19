@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { createApp } from '../../src/app';
-import { NEW_ARRIVAL_LIMIT } from '../../src/modules/products/product.constants';
+import { NEW_ARRIVAL_PER_CATEGORY } from '../../src/modules/products/product.constants';
 import { Product } from '../../src/modules/products/product.model';
 import { adminClient, makeCategory, makeProduct } from '../factories';
 import { clearDb, startTestDb, stopTestDb } from '../helpers';
@@ -26,7 +26,7 @@ describe('new arrivals: one rule for the badge, the page and the home row', () =
   });
   afterAll(stopTestDb);
 
-  const newest = () => created.slice(-NEW_ARRIVAL_LIMIT).map((c) => c.name).sort();
+  const newest = () => created.slice(-NEW_ARRIVAL_PER_CATEGORY).map((c) => c.name).sort();
 
   it('badges only the newest products, not everything published recently', async () => {
     const items = (await get('/products?limit=48')).body.data.items as Card[];
@@ -37,13 +37,13 @@ describe('new arrivals: one rule for the badge, the page and the home row', () =
   it('shows exactly the badged products on the New Arrivals page', async () => {
     const page = (await get('/products?new=true&limit=48')).body.data;
     expect((page.items as Card[]).map((i) => i.name).sort()).toEqual(newest());
-    expect(page.pagination.total).toBe(NEW_ARRIVAL_LIMIT);
+    expect(page.pagination.total).toBe(NEW_ARRIVAL_PER_CATEGORY);
     expect((page.items as Card[]).every((i) => i.isNew)).toBe(true);
   });
 
   it('feeds the home "Just arrived" row from the same set, newest first', async () => {
     const row = (await get('/content/home')).body.data.newArrivals as Card[];
-    expect(row).toHaveLength(8);
+    expect(row).toHaveLength(NEW_ARRIVAL_PER_CATEGORY);
     expect(row.every((r) => r.isNew)).toBe(true);
     expect(row[0]!.name).toBe('Bag 13');
   });
