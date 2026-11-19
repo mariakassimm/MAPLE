@@ -9,6 +9,7 @@
  */
 import type { IncomingMessage, ServerResponse } from 'http';
 import type { Express } from 'express';
+import mongoose from 'mongoose';
 import { createApp } from '../src/app';
 import { connectDb } from '../src/config/db';
 import { env } from '../src/config/env';
@@ -21,6 +22,10 @@ let connecting: Promise<void> | null = null;
 let lastSweep = 0;
 
 async function ready(): Promise<Express> {
+  // A warm instance can be frozen and thaw with its database socket closed: reconnect instead of trusting the old promise.
+  // (readyState 1 = connected, 2 = connecting; 0 or 3 = dropped.)
+  const state = mongoose.connection.readyState;
+  if (connecting && state !== 1 && state !== 2) connecting = null;
   if (!connecting) {
     connecting = connectDb().catch((err) => {
       connecting = null; // let the next request retry instead of caching a failure
