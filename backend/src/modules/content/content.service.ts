@@ -106,14 +106,12 @@ export async function assembleHome() {
   const collections =
     configured.length > 0
       ? configured
-      : categories
-          .slice(0, 4)
-          .map((c) => ({
-            title: c.name,
-            description: c.description ?? '',
-            url: `/collections/${c.slug}`,
-            image: c.image ?? null,
-          }));
+      : categories.slice(0, 4).map((c) => ({
+          title: c.name,
+          description: c.description ?? '',
+          url: `/collections/${c.slug}`,
+          image: c.image ?? null,
+        }));
 
   const live = { status: 'published', categoryId: { $in: categories.map((c) => c._id) } };
   // "Just arrived" is the same set the New badge and the New Arrivals page use (see products/newArrivals.ts).

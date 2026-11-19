@@ -108,11 +108,7 @@ function Words({
     ? { initial: 'hidden', whileInView: 'show', viewport: { once: true, margin: '-80px' } }
     : { initial: 'hidden', animate: 'show' };
   return (
-    <motion.span
-      className={className}
-      {...trigger}
-      transition={{ staggerChildren: 0.07, delayChildren: delay }}
-    >
+    <motion.span className={className} {...trigger} transition={{ staggerChildren: 0.07, delayChildren: delay }}>
       <span className="sr-only">{text}</span>
       {text.split(' ').map((w, i, arr) => (
         <span key={i} aria-hidden className="inline-block overflow-hidden pb-[0.14em] align-bottom">
