@@ -16,7 +16,8 @@ export const logger = pino({
     ],
     censor: '[REDACTED]',
   },
-  transport: env.NODE_ENV === 'development' && !process.env.VERCEL
-  ? { target: 'pino-pretty', options: { colorize: true } }
-  : undefined,
+  transport:
+    env.NODE_ENV === 'development' && !process.env.VERCEL
+      ? { target: 'pino-pretty', options: { colorize: true } }
+      : undefined,
 });
