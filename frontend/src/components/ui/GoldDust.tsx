@@ -23,8 +23,23 @@ export function GoldDust({
     if (!canvas || reduce) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const n = window.innerWidth < 640 ? Math.round(count * 0.5) : count;
+    const phone = window.innerWidth < 640;
+    // Phones: 1x canvas and about half the particles. The dust is soft and blurry, so the lower resolution is not visible.
+    const dpr = phone ? 1 : Math.min(window.devicePixelRatio || 1, 2);
+    const n = phone ? Math.round(count * 0.45) : count;
+    // One pre-drawn glow, stamped per particle. Creating a gradient per particle per frame is what made phones stutter.
+    const [c1, c2] = tone === 'warm' ? ['176,128,44', '200,155,72'] : ['240,222,176', '214,184,130'];
+    const SPRITE = 64;
+    const sprite = document.createElement('canvas');
+    sprite.width = sprite.height = SPRITE;
+    const sctx = sprite.getContext('2d');
+    if (!sctx) return;
+    const sg = sctx.createRadialGradient(SPRITE / 2, SPRITE / 2, 0, SPRITE / 2, SPRITE / 2, SPRITE / 2);
+    sg.addColorStop(0, `rgba(${c1},1)`);
+    sg.addColorStop(0.35, `rgba(${c2},0.35)`);
+    sg.addColorStop(1, `rgba(${c2},0)`);
+    sctx.fillStyle = sg;
+    sctx.fillRect(0, 0, SPRITE, SPRITE);
     const parts = Array.from({ length: n }, () => ({
       x: Math.random(),
       y: Math.random(),
@@ -76,15 +91,8 @@ export function GoldDust({
         const px = p.x * w,
           py = p.y * h,
           rad = p.r * 5;
-        const g = ctx!.createRadialGradient(px, py, 0, px, py, rad);
-        const [c1, c2] = tone === 'warm' ? ['176,128,44', '200,155,72'] : ['240,222,176', '214,184,130'];
-        g.addColorStop(0, `rgba(${c1},${a})`);
-        g.addColorStop(0.35, `rgba(${c2},${a * 0.35})`);
-        g.addColorStop(1, `rgba(${c2},0)`);
-        ctx!.fillStyle = g;
-        ctx!.beginPath();
-        ctx!.arc(px, py, rad, 0, 6.2832);
-        ctx!.fill();
+        ctx!.globalAlpha = a;
+        ctx!.drawImage(sprite, px - rad, py - rad, rad * 2, rad * 2);
       }
     }
     raf = requestAnimationFrame(tick);

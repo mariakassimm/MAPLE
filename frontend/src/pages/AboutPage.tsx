@@ -7,6 +7,9 @@ import { Reveal } from '@/components/ui/Reveal';
 import { EASE } from '@/lib/motion';
 import { useSeo } from '@/lib/seo';
 
+/** Phones keep the same look but skip the continuous effects (slow zoom, parallax, animated tracking) that make low-end GPUs stutter. */
+const isPhone = () => typeof window !== 'undefined' && window.matchMedia('(max-width: 639px)').matches;
+
 // MIDNIGHT LUXURY editorial About page.
 // Imagery lives in /public/brand: replace a file with the same name (or change the paths below) to use new photography.
 // Copy: the supplied brand statement and the three chapter themes only. No history, craftsmanship, sustainability or
@@ -151,6 +154,7 @@ function Frame({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const still = reduce || isPhone();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [`-${strength}%`, `${strength}%`]);
   return (
@@ -159,19 +163,26 @@ function Frame({
       className={`sheen-hover group relative overflow-hidden bg-[#30251F] ${ratio} ${className}`}
       {...(reduce
         ? {}
-        : {
-            initial: { clipPath: 'inset(12% 12% 12% 12%)', opacity: 0 },
-            whileInView: { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 },
-            viewport: { once: true, margin: '-80px' },
-            transition: { duration: 1.5, ease: EASE },
-          })}
+        : isPhone()
+          ? {
+              initial: { opacity: 0 },
+              whileInView: { opacity: 1 },
+              viewport: { once: true, margin: '-60px' },
+              transition: { duration: 0.9, ease: EASE },
+            }
+          : {
+              initial: { clipPath: 'inset(12% 12% 12% 12%)', opacity: 0 },
+              whileInView: { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 },
+              viewport: { once: true, margin: '-80px' },
+              transition: { duration: 1.5, ease: EASE },
+            })}
     >
       <motion.img
         src={src}
         alt={alt}
         loading="lazy"
         decoding="async"
-        style={reduce ? undefined : { y, scale: 1.14 }}
+        style={still ? undefined : { y, scale: 1.14 }}
         className={`absolute inset-0 h-full w-full object-cover ${pos} ${dim ? 'brightness-[0.9] contrast-[1.03]' : ''} transition-[filter] duration-[1800ms] ease-luxe group-hover:brightness-100`}
       />
       {dim && (
@@ -297,6 +308,7 @@ export default function AboutPage() {
     description: 'MAPLE is an independent house of considered pieces, made to be lived in. The Art of Everyday Luxury.',
   });
   const reduce = useReducedMotion();
+  const phone = isPhone();
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '14%']);
@@ -313,24 +325,29 @@ export default function AboutPage() {
         ref={heroRef}
         className="relative isolate flex min-h-[calc(100svh-6.5rem)] flex-col justify-end overflow-hidden bg-[#171715]"
       >
-        <motion.div className="absolute inset-0 -z-10" style={reduce ? undefined : { y: heroY }}>
+        <motion.div className="absolute inset-0 -z-10" style={reduce || phone ? undefined : { y: heroY }}>
           <motion.img
             src={IMG.hero.src}
             alt={IMG.hero.alt}
             className="h-[112%] w-full object-cover object-[50%_60%] brightness-[0.72] contrast-[1.08] sepia-[0.25] saturate-[1.05]"
             {...(reduce
               ? {}
-              : {
-                  initial: { scale: 1, opacity: 0 },
-                  animate: { scale: 1.08, opacity: 1 },
-                  transition: { scale: { duration: 30, ease: 'linear' }, opacity: { duration: 1.8, ease: EASE } },
-                })}
+              : phone
+                ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 1.4, ease: EASE } }
+                : {
+                    initial: { scale: 1, opacity: 0 },
+                    animate: { scale: 1.08, opacity: 1 },
+                    transition: { scale: { duration: 30, ease: 'linear' }, opacity: { duration: 1.8, ease: EASE } },
+                  })}
           />
         </motion.div>
         <div className="absolute inset-0 -z-[5] bg-gradient-to-t from-[#171715] via-[#171715]/35 to-[#171715]/55" />
         <div className="absolute inset-0 -z-[5] bg-gradient-to-r from-[#171715]/90 via-[#171715]/45 to-transparent sm:via-[#171715]/35" />
         <GoldDust className="-z-[4]" count={46} />
-        <motion.div className="page-container pb-16 pt-32 sm:pb-24" style={reduce ? undefined : { opacity: heroFade }}>
+        <motion.div
+          className="page-container pb-16 pt-32 sm:pb-24"
+          style={reduce || phone ? undefined : { opacity: heroFade }}
+        >
           <motion.p
             className="metal-wordmark font-display text-2xl uppercase sm:text-3xl"
             {...(reduce
@@ -378,7 +395,7 @@ export default function AboutPage() {
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-40 top-10 h-[480px] w-[480px] rounded-full bg-[#77634D]/15 blur-[120px]"
+          className="pointer-events-none absolute -left-40 top-10 h-[480px] w-[480px] rounded-full bg-[radial-gradient(closest-side,rgba(119,99,77,0.16),transparent)] scale-[1.6]"
         />
         <div className="page-container relative grid items-center gap-14 py-24 md:grid-cols-12 md:gap-0 md:py-40">
           <div className="md:col-span-6 md:pr-14">
@@ -441,7 +458,7 @@ export default function AboutPage() {
       <section className="relative bg-[#30251F]" aria-labelledby="c2">
         <div
           aria-hidden
-          className="pointer-events-none absolute right-0 top-1/3 h-[420px] w-[420px] rounded-full bg-[#B69A70]/10 blur-[130px]"
+          className="pointer-events-none absolute right-0 top-1/3 h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(182,154,112,0.11),transparent)] scale-[1.6]"
         />
         <div className="relative">
           <Chapter
@@ -457,7 +474,7 @@ export default function AboutPage() {
       <section className="relative bg-gradient-to-b from-[#4A3424] to-[#2E2118]" aria-labelledby="c3">
         <div
           aria-hidden
-          className="pointer-events-none absolute left-0 top-1/4 h-[420px] w-[420px] rounded-full bg-[#B69A70]/10 blur-[130px]"
+          className="pointer-events-none absolute left-0 top-1/4 h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(182,154,112,0.11),transparent)] scale-[1.6]"
         />
         <div className="relative">
           <Chapter
@@ -497,7 +514,7 @@ export default function AboutPage() {
       <section className="relative isolate overflow-hidden bg-[#211D19]" aria-labelledby="close-h">
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#B69A70]/[0.13] blur-[140px]"
+          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(182,154,112,0.14),transparent)] scale-[1.6]"
         />
         <GoldDust className="-z-[5]" count={40} />
         <div className="page-container py-28 text-center md:py-48">
@@ -525,8 +542,18 @@ export default function AboutPage() {
           <motion.p
             aria-hidden
             className="metal-wordmark mt-24 pl-[0.38em] font-display text-[56px] uppercase sm:text-[120px] md:mt-36"
-            {...(reduce
-              ? { style: { letterSpacing: '0.38em' } }
+            {...(reduce || isPhone()
+              ? {
+                  style: { letterSpacing: '0.38em' },
+                  ...(reduce
+                    ? {}
+                    : {
+                        initial: { opacity: 0 },
+                        whileInView: { opacity: 1 },
+                        viewport: { once: true },
+                        transition: { duration: 1.8, ease: EASE },
+                      }),
+                }
               : {
                   initial: { opacity: 0, letterSpacing: '0.1em' },
                   whileInView: { opacity: 1, letterSpacing: '0.38em' },

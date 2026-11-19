@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { ArrowRight, Banknote, PackageCheck, Smartphone } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NewsletterForm } from '@/components/home/NewsletterForm';
 import { ProductCard, ProductGridSkeleton } from '@/components/product/ProductCard';
@@ -14,6 +15,61 @@ import { useHome } from '@/hooks/queries';
 import { EASE } from '@/lib/motion';
 import { useSeo } from '@/lib/seo';
 import type { ProductCard as Card } from '@/types/api';
+
+/**
+ * Hero video that never shows a play button. Phones often refuse autoplay (low-power mode, data saver, or React not setting
+ * the `muted` attribute early enough), and browsers then draw their own play icon. So the poster stays visible underneath,
+ * the video is invisible until it is really playing, and if the browser refuses, the poster simply stays.
+ */
+function HeroVideo({ src, poster }: { src: string; poster?: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const saveData =
+    typeof navigator !== 'undefined' &&
+    (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+
+  useEffect(() => {
+    const v = ref.current;
+    if (!v || saveData) return;
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    const start = () => void v.play().catch(() => undefined);
+    start();
+    // Some phones only allow playback after the first touch; try once more then.
+    window.addEventListener('touchstart', start, { once: true, passive: true });
+    const onVisibility = () => (document.hidden ? v.pause() : start());
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => {
+      window.removeEventListener('touchstart', start);
+      document.removeEventListener('visibilitychange', onVisibility);
+    };
+  }, [saveData]);
+
+  return (
+    <>
+      {poster && <img src={poster} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />}
+      {!saveData && (
+        <video
+          ref={ref}
+          className={`absolute inset-0 -z-10 h-full w-full object-cover transition-opacity duration-700 ${playing ? 'opacity-100' : 'opacity-0'}`}
+          src={src}
+          poster={poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          controls={false}
+          onPlaying={() => setPlaying(true)}
+          aria-hidden
+        />
+      )}
+    </>
+  );
+}
 
 function ProductRow({
   eyebrow,
@@ -41,7 +97,7 @@ function ProductRow({
       {dark && (
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full bg-[#B69A70]/10 blur-[130px]"
+          className="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(182,154,112,0.11),transparent)] scale-[1.6]"
         />
       )}
       <div className="page-container relative">
@@ -105,16 +161,7 @@ export default function HomePage() {
         aria-label="Introduction"
       >
         {hero.videoUrl && !reduce ? (
-          <video
-            className="absolute inset-0 -z-10 h-full w-full object-cover"
-            src={hero.videoUrl}
-            poster={hero.videoPoster?.url}
-            autoPlay
-            muted
-            loop
-            playsInline
-            aria-hidden
-          />
+          <HeroVideo src={hero.videoUrl} poster={hero.videoPoster?.url ?? hero.image?.url} />
         ) : hero.image ? (
           <picture>
             {hero.imageMobile && <source media="(max-width: 639px)" srcSet={hero.imageMobile.url} />}

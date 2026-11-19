@@ -50,7 +50,7 @@ export function Footer() {
       <div aria-hidden className="h-px bg-gradient-to-r from-transparent via-[#B69A70]/70 to-transparent" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#B69A70]/[0.07] blur-[110px]"
+        className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[radial-gradient(closest-side,rgba(182,154,112,0.08),transparent)] scale-[1.6]"
       />
 
       {/* Invitation */}
